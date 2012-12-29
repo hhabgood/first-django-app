@@ -14,5 +14,8 @@ class PollAdmin(admin.ModelAdmin):
 	]
 	inlines = [ChoiceInline]
 	list_display = ('question','pub_date','was_published_recently')
+	list_filter = ['pub_date'] #Lets you select how you want to initially filter the list in the sidebar
+	search_fields = ['question']
+	date_hierarchy = 'pub_date'
 
 admin.site.register(Poll, PollAdmin)
